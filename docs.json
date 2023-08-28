@@ -1,0 +1,1661 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Online shop",
+    "description": "this is online shop market api",
+    "contact": {
+      "email": "mohir7209@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://petstore3.swagger.io/api/v3"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Everything about products"
+    },
+    {
+      "name": "User",
+      "description": "Operations about user"
+    },
+    {
+      "name": "Categories"
+    },
+    {
+      "name": "Sub categories"
+    },
+    {
+      "name": "Sub sub categories"
+    }
+  ],
+  "paths": {
+    "/sub_categories/get": {
+      "get": {
+        "tags": ["Sub categories"],
+        "description": "Get sub categories",
+        "summary": "Get sub categories",
+        "responses": {
+          "200": {
+            "description": "Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/categories"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sub_categories/create": {
+      "post": {
+        "tags": ["Sub categories"],
+        "description": "Create sub category",
+        "summary": "Create sub category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createSubCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sub_category updated"
+          },
+          "400": {
+            "description": "Sub_category not found"
+          }
+        }
+      }
+    },
+    "/sub_categories/update": {
+      "post": {
+        "tags": ["Sub categories"],
+        "description": "update sub category",
+        "summary": "update sub category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateSubCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sub_category updated"
+          },
+          "400": {
+            "description": "Sub_category not found"
+          }
+        }
+      }
+    },
+    "/sub_categories/delete": {
+      "post": {
+        "tags": ["Sub categories"],
+        "description": "Delete sub category",
+        "summary": "Delete sub category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deleteSubCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sub_category deleted"
+          },
+          "400": {
+            "description": "Sub_category not found"
+          }
+        }
+      }
+    },
+
+    "/sub_sub_categories/get": {
+      "get": {
+        "tags": ["Sub sub categories"],
+        "description": "Get sub sub categories",
+        "summary": "Get sub sub categories",
+        "responses": {
+          "200": {
+            "description": "Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/categories"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sub_sub_categories/create": {
+      "post": {
+        "tags": ["Sub sub categories"],
+        "description": "Create sub sub category",
+        "summary": "Create sub sub category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createSubCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sub_sub_category updated"
+          },
+          "400": {
+            "description": "Sub_sub_category not found"
+          }
+        }
+      }
+    },
+    "/sub_sub_categories/update": {
+      "post": {
+        "tags": ["Sub sub categories"],
+        "description": "update sub sub category",
+        "summary": "update sub  sub category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateSubCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sub_sub_category updated"
+          },
+          "400": {
+            "description": "Sub_sub_category not found"
+          }
+        }
+      }
+    },
+    "/sub_sub_categories/delete": {
+      "post": {
+        "tags": ["Sub sub categories"],
+        "description": "Delete sub sub category",
+        "summary": "Delete sub sub category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deleteSubCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sub_sub_category deleted"
+          },
+          "400": {
+            "description": "Sub_sub_category not found"
+          }
+        }
+      }
+    },
+
+    "/category/create": {
+      "post": {
+        "tags": ["Categories"],
+        "description": "Create category",
+        "summary": "Create category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "This category is exists"
+          },
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Category created"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/categories/getall": {
+      "get": {
+        "tags": ["Categories"],
+        "description": "Get all from categories with products",
+        "summary": "Get all from categories with products ",
+
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": [
+                    {
+                      "message": "Get categories, sub_categories, sub_sub_categories"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/categories/get": {
+      "get": {
+        "tags": ["Categories"],
+        "description": "Get only categories",
+        "summary": "Get only categories",
+
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/categories"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/update": {
+      "post": {
+        "tags": ["Categories"],
+        "description": "Update existing category",
+        "summary": "Update existing category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Category succesfully updated"
+          },
+          "400": { "description": "Category not found" }
+        }
+      }
+    },
+    "/category/delete": {
+      "post": {
+        "tags": ["Categories"],
+        "description": "Delete existing category",
+        "summary": "Delete existing category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deleteCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Category id deleted"
+          },
+          "404": { "description": "Category not found" }
+        }
+      }
+    },
+
+    "/user/register": {
+      "post": {
+        "tags": ["User"],
+        "description": "Registration",
+        "summary": "Register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userRegister"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "User is exists"
+          },
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/userToken"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/add_phone": {
+      "post": {
+        "tags": ["User"],
+        "description": "Add phone number",
+        "summary": "Add phone number ",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userPhone"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["User"],
+        "description": "Login",
+        "summary": "Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userRegister"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/userToken"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must register"
+          },
+          "400": {
+            "description": "Wrong password"
+          }
+        }
+      }
+    },
+    "/user/delete": {
+      "post": {
+        "tags": ["User"],
+        "description": "Delete account",
+        "summary": "Delete account",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "dfaf767ASHF7.dfad56hfa4fg5THRH356FG34fg.adag3453FGsdfh4"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User is deleted"
+          },
+          "500": { "description": "Internal server error" }
+        }
+      }
+    },
+
+    "/products/get/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "Get product",
+        "summary": "Getting products per pages",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Sub_sub_category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong sub_sub_category id"
+          }
+        }
+      }
+    },
+    "/products/get/top/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "example for products",
+        "summary": "Getting top products with pages",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Sub_sub_category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong sub_sub_category id"
+          },
+          "204": {
+            "description": "no products"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/get/recently/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "example for products",
+        "summary": "Getting recently products with pages",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Sub_sub_category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "sub_sub_category": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "brand": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "weight": {
+                        "type": "string"
+                      },
+                      "author": {
+                        "type": "string"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "number"
+                      },
+                      "maded_country": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "img": {
+                        "type": "string"
+                      },
+                      "img2": {
+                        "type": "string"
+                      },
+                      "img3": {
+                        "type": "string"
+                      },
+                      "img4": {
+                        "type": "string"
+                      }
+                    },
+                    "example": {
+                      "id": "sad12-dfs34Wwr-24AFADd-asf12EE",
+                      "title": "sun glasses",
+                      "sub_sub_category": "14dfs234-sdadfWEe-23dfsdf",
+                      "description": "black sun glasses",
+                      "price": 15,
+                      "size": "2",
+                      "weight": 0.1,
+                      "author": "waikiki",
+                      "color": "black",
+                      "maded_country": "USA",
+                      "img": "https://images.app.goo.gl/cV3A6rwnQRFG2eXv7",
+                      "img2": "https://images.app.goo.gl/cV3A6rwnQRFG2eXv7",
+                      "img3": "https://images.app.goo.gl/cV3A6rwnQRFG2eXv7",
+                      "img4": null,
+                      "rating": 4.5,
+                      "orders_count": 54874,
+                      "created_at": "2023-02-09T17:57:11.912Z",
+                      "comments": [
+                        {
+                          "title": "super glasses",
+                          "created_at": "2023-02-09T17:57:11.912Z"
+                        },
+                        {
+                          "title": "super glasses",
+                          "created_at": "2023-02-09T17:57:11.912Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong sub_sub_category id"
+          },
+          "204": {
+            "description": "no products"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/get/cheap/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "example for products",
+        "summary": "Getting cheap products with pages",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Sub_sub_category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "sub_sub_category": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "brand": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "string"
+                      },
+                      "weight": {
+                        "type": "string"
+                      },
+                      "author": {
+                        "type": "string"
+                      },
+                      "color": {
+                        "type": "string"
+                      },
+                      "rating": {
+                        "type": "number"
+                      },
+                      "maded_country": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "img": {
+                        "type": "string"
+                      },
+                      "img2": {
+                        "type": "string"
+                      },
+                      "img3": {
+                        "type": "string"
+                      },
+                      "img4": {
+                        "type": "string"
+                      }
+                    },
+                    "example": {
+                      "id": "sad12-dfs34Wwr-24AFADd-asf12EE",
+                      "title": "sun glasses",
+                      "sub_sub_category": "14dfs234-sdadfWEe-23dfsdf",
+                      "description": "black sun glasses",
+                      "price": 15,
+                      "size": "2",
+                      "weight": 0.1,
+                      "author": "waikiki",
+                      "color": "black",
+                      "maded_country": "USA",
+                      "img": "https://images.app.goo.gl/cV3A6rwnQRFG2eXv7",
+                      "img2": "https://images.app.goo.gl/cV3A6rwnQRFG2eXv7",
+                      "img3": "https://images.app.goo.gl/cV3A6rwnQRFG2eXv7",
+                      "img4": null,
+                      "rating": 4.5,
+                      "orders_count": 54874,
+                      "created_at": "2023-02-09T17:57:11.912Z",
+                      "comments": [
+                        {
+                          "title": "super glasses",
+                          "created_at": "2023-02-09T17:57:11.912Z"
+                        },
+                        {
+                          "title": "super glasses",
+                          "created_at": "2023-02-09T17:57:11.912Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong sub_sub_category id"
+          },
+          "204": {
+            "description": "no products"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/get/expensive/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "example for products",
+        "summary": "Getting expensive products with pages",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Sub_sub_category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong sub_sub_category id"
+          },
+          "204": {
+            "description": "no products"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/get/one/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "example for products",
+        "summary": "Getting one product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createproduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Wrong sub_sub_category id"
+          },
+          "204": {
+            "description": "Product not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/discounts": {
+      "get": {
+        "tags": ["Products"],
+        "description": "example for products with pages",
+        "summary": "Getting discount products",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createproduct"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found"
+          },
+          "204": {
+            "description": "no products"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/create": {
+      "post": {
+        "tags": ["Products"],
+        "description": "Create product",
+        "summary": "Creating products",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createproduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Product succesfully created"
+          }
+        }
+      }
+    },
+    "/product/update/{id}": {
+      "post": {
+        "tags": ["Products"],
+        "description": "Update existing product",
+        "summary": "Update product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID existing product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createproduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid token"
+          },
+          "204": {
+            "description": "Product not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/delete/{id}": {
+      "post": {
+        "tags": ["Products"],
+        "description": "Delete product",
+        "summary": "Delete product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of deleting product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "sdfdsfgsrt36-affg3vdfghd5gh-adfg3hjfghjg3"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid token"
+          },
+          "204": {
+            "description": "Product not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "201": {
+            "description": "Product is deleted"
+          }
+        }
+      }
+    },
+    "/product/makediscount/{id}": {
+      "post": {
+        "tags": ["Products"],
+        "description": "Make discount price for product",
+        "summary": "Assign a discount",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of existing product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "persent": {
+                    "type": "number",
+                    "example": "15"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Product not found"
+          },
+          "200": {
+            "description": "Successfully"
+          },
+          "402": {
+            "description": "Persent value must be from 1 to 100"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/product/rate/{id}": {
+      "post": {
+        "tags": ["Products"],
+        "description": "rate a product",
+        "summary": "Rate a product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID existing product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "star": {
+                    "type": "number",
+                    "example": 5
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "You must register"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/product/search": {
+      "post": {
+        "tags": ["Products"],
+        "description": "Search products",
+        "summary": "Search products",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Asus"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Product not found"
+          },
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Too short character, must > 2"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/getmyproducts": {
+      "get": {
+        "tags": ["Products"],
+        "description": "Get your products",
+        "summary": "Getting your own products",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of getting elements",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of request",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid token"
+          },
+          "204": {
+            "description": "No products yet"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/product/onemyproduct/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "Get one of your products",
+        "summary": "Getting one of your own products",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "Your token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID existing product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid token"
+          },
+          "204": {
+            "description": "No products yet"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "200": {
+            "description": "Successfully fetched all posts from JSONPlaceholder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getproduct"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "getproduct": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          },
+          "description": {
+            "type": "string",
+            "example": "black sun glasses"
+          },
+          "brand": {
+            "type": "string",
+            "example": "best lens"
+          },
+          "price": {
+            "type": "number",
+            "example": 115
+          },
+          "size": {
+            "type": "string",
+            "example": "200x300"
+          },
+          "weight": {
+            "type": "number",
+            "example": 2.1
+          },
+          "author": {
+            "type": "string",
+            "example": "bestlens inc."
+          },
+          "sub_sub_category": {
+            "type": "string",
+            "example": "sdfdsfgsrt36-affg3vdfghd5gh-adfg3hjfghjg3"
+          },
+          "color": {
+            "type": "string",
+            "example": "black"
+          },
+          "maded_country": {
+            "type": "string",
+            "example": "USA"
+          },
+          "img": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          },
+          "img2": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          },
+          "img3": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          },
+          "img4": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          }
+        }
+      },
+      "createproduct": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          },
+          "description": {
+            "type": "string",
+            "example": "black sun glasses"
+          },
+          "brand": {
+            "type": "string",
+            "example": "best lens"
+          },
+          "price": {
+            "type": "number",
+            "example": 115
+          },
+          "size": {
+            "type": "string",
+            "example": "200x300"
+          },
+          "weight": {
+            "type": "number",
+            "example": 2.1
+          },
+          "author": {
+            "type": "string",
+            "example": "bestlens inc."
+          },
+          "sub_sub_category": {
+            "type": "string",
+            "example": "sdfdsfgsrt36-affg3vdfghd5gh-adfg3hjfghjg3"
+          },
+          "color": {
+            "type": "string",
+            "example": "black"
+          },
+          "maded_country": {
+            "type": "string",
+            "example": "USA"
+          },
+          "img": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          },
+          "img2": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          },
+          "img3": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          },
+          "img4": {
+            "type": "string",
+            "example": "https://exapmle_link"
+          }
+        }
+      },
+      "userRegister": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "Alibobo"
+          },
+          "password": {
+            "type": "string",
+            "example": "123asd"
+          }
+        }
+      },
+      "userToken": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "dfaf767ASHF7.dfad56hfa4fg5THRH356FG34fg.adag3453FGsdfh4"
+          }
+        }
+      },
+      "userPhone": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "example": "998991234567"
+          }
+        }
+      },
+      "createCategory": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string",
+            "example": "For children"
+          }
+        }
+      },
+      "categories": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          },
+          "title": {
+            "type": "string",
+            "example": "For children"
+          }
+        }
+      },
+      "updateCategory": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "For children"
+          },
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          }
+        }
+      },
+      "deleteCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          }
+        }
+      },
+      "updateSubCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          },
+          "title": {
+            "type": "string",
+            "example": "For children"
+          }
+        }
+      },
+      "createSubCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          },
+          "title": {
+            "type": "string",
+            "example": "For children"
+          }
+        }
+      },
+      "deleteSubCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sdfqerw54-affg3vf2342g-adfg343ffg3"
+          }
+        }
+      }
+    }
+  }
+}
