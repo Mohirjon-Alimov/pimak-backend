@@ -30,7 +30,7 @@
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1"
   },
-  "name": "9-exam",
+  "name": "pimak-backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
